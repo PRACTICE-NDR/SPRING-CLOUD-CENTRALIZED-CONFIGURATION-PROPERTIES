@@ -1,4 +1,4 @@
-package com.example.SpringCloudClient;
+package com.client.client1;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class SpringCloudClientApplication {
+public class Client1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudClientApplication.class, args);
+		SpringApplication.run(Client1Application.class, args);
 	}
 
 }
+
 @RefreshScope
 @RestController
 class MessageRestController {
@@ -22,11 +23,8 @@ class MessageRestController {
 	@Value("${message:Hello default}")
 	private String message;
 
-	@Value("${name:Hello default}")
-	private String name;
-
 	@RequestMapping("/message")
 	String getMessage() {
-		return message+"  "+name;
+		return message;
 	}
 }
